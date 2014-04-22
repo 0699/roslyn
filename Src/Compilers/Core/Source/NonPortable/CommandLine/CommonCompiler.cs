@@ -498,8 +498,9 @@ namespace Microsoft.CodeAnalysis
                     if (sqm != null)
                     {
                         sqm.BeginSession(this.GetSqmAppID(), false, out sqmSession);
+#if !BOOTSTRAP                        
                         sqm.SetGlobalSessionGuid(Arguments.SqmSessionGuid);
-
+#endif
                         // Build Version
                         Assembly thisAssembly = typeof(CommonCompiler).Assembly;
                         var fileVersion = FileVersionInfo.GetVersionInfo(thisAssembly.Location).FileVersion;

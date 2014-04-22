@@ -65,7 +65,7 @@ namespace Microsoft.CodeAnalysis
 
         internal static bool TryParseOption(string arg, out string name, out string value)
         {
-            if (string.IsNullOrEmpty(arg) || (arg[0] != '/' && arg[0] != '-'))
+            if (string.IsNullOrEmpty(arg) || ((arg[0] != '/' || (arg.IndexOf ('/', 2) > 0 && arg.IndexOf (':') < 2)) && arg[0] != '-'))
             {
                 name = null;
                 value = null;

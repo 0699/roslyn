@@ -5,7 +5,7 @@ BOOTSTRAP_DIR=$(TOP)/bootstrap
 CSC=mono $(BOOTSTRAP_DIR)/rcsc.exe
 OUTPUT_DIR=$(TOP)/rcsc
 FACADES_DIR=/Library/Frameworks/Mono.framework/Versions/Current/lib/mono/4.5/Facades
-MSBUILD_DIR=/Library/Frameworks/Mono.framework/Versions/Current/lib/mono/gac/Microsoft.Build.Tasks.v12.0/12.0.0.0__b03f5f7f11d50a3a
+MSBUILD12_DIR=/Library/Frameworks/Mono.framework/Versions/Current/lib/mono/xbuild/12.0/bin/
 IMMUTABLE_LIB=packages/Microsoft.Bcl.Immutable.1.1.20-beta/lib/portable-net45+win8/System.Collections.Immutable.dll
 METADATA_LIB=packages/Microsoft.Bcl.Metadata.1.0.9-alpha/lib/portable-net45+win8/System.Reflection.Metadata.dll
 
@@ -78,7 +78,7 @@ workspace:
 	cd Src/Workspaces/Core/ && $(CSC) -t:library -out:$(OUTPUT_DIR)/Microsoft.CodeAnalysis.Workspaces.dll -unsafe -d:MEF -noconfig @files.lst \
 	-r:$(OUTPUT_DIR)/Microsoft.CodeAnalysis.dll -r:$(OUTPUT_DIR)/Microsoft.CodeAnalysis.CSharp.dll \
 	-r:$(FACADES_DIR)/System.Runtime.dll -r:$(FACADES_DIR)/System.Collections.dll \
-	-r:System.Core.dll -r:System.dll -r:System.Xml.dll -r:System.Xml.Linq.dll -r:Microsoft.Build.dll -r:Microsoft.Build.Framework.dll \
+	-r:System.Core.dll -r:System.dll -r:System.Xml.dll -r:System.Xml.Linq.dll -r:$(MSBUILD12_DIR)/Microsoft.Build.dll -r:$(MSBUILD12_DIR)/Microsoft.Build.Framework.dll \
 	-r:../../$(IMMUTABLE_LIB) -r:System.ComponentModel.Composition.dll \
 	-resource:Microsoft.CodeAnalysis.Workspaces.WorkspacesResources.resources
 
@@ -87,7 +87,7 @@ csharp-workspace:
 	cd Src/Workspaces/CSharp/ && $(CSC) -t:library -out:$(OUTPUT_DIR)/Microsoft.CodeAnalysis.CSharp.Workspaces.dll -d:MEF -noconfig @files.lst \
 	-r:$(OUTPUT_DIR)/Microsoft.CodeAnalysis.dll -r:$(OUTPUT_DIR)/Microsoft.CodeAnalysis.CSharp.dll -r:$(OUTPUT_DIR)/Microsoft.CodeAnalysis.Workspaces.dll \
 	-r:$(FACADES_DIR)/System.Runtime.dll -r:$(FACADES_DIR)/System.Collections.dll \
-	-r:System.Core.dll -r:System.dll -r:System.Xml.dll -r:System.Xml.Linq.dll -r:Microsoft.Build.dll -r:Microsoft.Build.Framework.dll \
+	-r:System.Core.dll -r:System.dll -r:System.Xml.dll -r:System.Xml.Linq.dll -r:$(MSBUILD12_DIR)/Microsoft.Build.dll -r:$(MSBUILD12_DIR)/Microsoft.Build.Framework.dll \
 	-r:../../$(IMMUTABLE_LIB) -r:System.ComponentModel.Composition.dll \
-	-r:$(MSBUILD_DIR)/Microsoft.Build.Tasks.v12.0.dll \
+	-r:$(MSBUILD12_DIR)/Microsoft.Build.Tasks.v12.0.dll \
 	-resource:Microsoft.CodeAnalysis.CSharp.Workspaces.CSharpWorkspaceResources.resources

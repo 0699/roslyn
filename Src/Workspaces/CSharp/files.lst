@@ -166,3 +166,4 @@ Utilities/TypeSyntaxComparer.cs
 Utilities/UsingsAndExternAliasesDirectiveComparer.cs
 Utilities/UsingsAndExternAliasesOrganizer.cs
 Formatting/Engine/Trivia/CSharpTriviaFormatter.DocumentationCommentExteriorCommentRewriter.cs
+InternalsVisibleTo.cs

@@ -93,3 +93,5 @@ csharp-workspace:
 	-r:../../$(IMMUTABLE_LIB) -r:System.ComponentModel.Composition.dll \
 	-r:$(MSBUILD_DIR)/Microsoft.Build.Tasks.v12.0.dll \
 	-resource:Microsoft.CodeAnalysis.CSharp.Workspaces.CSharpWorkspaceResources.resources
+
+monodevelop: bootstrap rcsc workspace csharp-workspace

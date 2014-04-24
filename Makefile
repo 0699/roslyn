@@ -4,8 +4,10 @@ BOOTSTRAP_MCS=mcs
 BOOTSTRAP_DIR=$(TOP)/bootstrap
 CSC=mono $(BOOTSTRAP_DIR)/rcsc.exe
 OUTPUT_DIR=$(TOP)/rcsc
-FACADES_DIR=/Library/Frameworks/Mono.framework/Versions/Current/lib/mono/4.5/Facades
-MSBUILD_DIR=/Library/Frameworks/Mono.framework/Versions/Current/lib/mono/gac/Microsoft.Build.Tasks.v12.0/12.0.0.0__b03f5f7f11d50a3a
+#MONO_DIR=/opt/mono
+MONO_DIR=/Library/Frameworks/Mono.framework/Versions/Current
+FACADES_DIR=$(MONO_DIR)/lib/mono/4.5/Facades
+MSBUILD_DIR=$(MONO_DIR)/lib/mono/gac/Microsoft.Build.Tasks.v12.0/12.0.0.0__b03f5f7f11d50a3a
 IMMUTABLE_LIB=packages/Microsoft.Bcl.Immutable.1.1.20-beta/lib/portable-net45+win8/System.Collections.Immutable.dll
 METADATA_LIB=packages/Microsoft.Bcl.Metadata.1.0.9-alpha/lib/portable-net45+win8/System.Reflection.Metadata.dll
 
